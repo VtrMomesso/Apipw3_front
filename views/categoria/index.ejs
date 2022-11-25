@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs')  %>
+
+<title> Estilos Marciais </title>
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <%- include('../partials/menu.ejs') %>
+
+        <div class="card mt-2">
+            <div class="card-header">CADASTRAR ESTILO MARCIAL</div>
+        </div>
+
+        <div class="card-body">
+            <form action="http://localhost:3000/inserirCategoria" method="post">
+                
+                <label for="">ESTILO MARCIAL</label>
+                <input type="text" class="form-control" 
+                        name="nome_categoria" id="nome_categoria"
+                        placeholder="Digite um estilo Marcial">
+
+                <label for="">DESCRIÇÃO DO ESTILO MARCIAL</label>
+                <input type="text" class="form-control" 
+                            name="nome_categoria" id="nome_categoria"
+                            placeholder="Digite a descrição do estilo marcial">
+                
+                <button class="btn btn-success mt-2">CADASTRAR</button>
+            </form>
+        </div>
+    </div>
+
+    </body>
+
+<%- include('../partials/footer.ejs')  %>

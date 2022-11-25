@@ -1,0 +1,24 @@
+{
+    "name": "apipw3_front",
+    "version": "1.0.0",
+    "description": "Front-end web do projeto de ArtesMarciais.",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "keywords": [
+        "pw3",
+        "front-end",
+        "ArtesMarciais",
+        "nodejs",
+        "etec",
+        "barueri"
+    ],
+    "author": "Victor dos Santos",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.27.2",
+        "ejs": "^3.1.8",
+        "express": "^4.18.2"
+    }
+}
