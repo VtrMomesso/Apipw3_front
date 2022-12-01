@@ -15,16 +15,16 @@
         </div>
 
         <%
-            categorias.forEach(categoria=>{
+             artesMarcial.forEach(artes=>{
         %>
 
             <div class="card mt-2">
 
                 <div class="card-body">
-                    <%= categoria.nome_categoria %>
+                    <%= artes.estiloMarcial %>
                 </div>
 
-                <a href="/formEdicaoCategorias/<%= categoria.id %>" class="btn btn-success mt-1">EDITAR</a>
+                <a href="/formEdicaoArtes/<%= artes.id %>" class="btn btn-success mt-1">EDITAR</a>
                 <a href="#" class="btn btn-danger mt-1">EXCLUIR</a>
 
             </div>

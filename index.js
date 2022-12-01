@@ -13,52 +13,63 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 
-//ROTA DE CADASTRO DE CATEGORIAS
-app.get('/cadastroCategorias', (req, res)=>{
-    res.render('categoria/index');
+//ROTA DE CADASTRO DE ARTES MARCIAL
+app.get('/inserirArtesMarcial', (req, res)=>{
+    res.render('artesMarcial/index');
 });
 
 //ROTA DE LISTAGEM DE CATEGORIAS
-app.get('/listagemCategorias', (req, res)=>{
+app.get('/listagemArtesMarcial', (req, res)=>{
     
-    const urlListagemCategoria = 'http://localhost:3000/listarCategoria';
+    const urlListagemArtesMarcial = 'http://localhost:3000/listarArtes';
 
     /*
     CHAMADA PELO AXIOS:
-    1 - URL DA ROTA (urlListagemCategoria)
+    1 - URL DA ROTA (urlListagemArtesMarcial)
     2 - CALLBACK DA RESPOSTA DA CHAMADA
     */
-    axios.get(urlListagemCategoria)
+    axios.get(urlListagemArtesMarcial)
         .then(
             (response)=>{
                 // console.log(response.data);
                 // res.send(response.data);
-                let categorias = response.data;
-                res.render('categoria/listagemCategoria', {categorias});
+                let artesMarcial = response.data;
+                res.render('artesMarcial/listagemArtesMarcial', {artesMarcial});
 
         }); 
     });
 
     //ROTA DE LISTAGEM DE EDIÇÃO
-    app.get('/formEdicaoCategorias/:id', (req, res)=>{
+    app.get('/alterarArtesMarcial/:id', (req, res)=>{
         
         //RECEBE O ID DE CATEGORIA QUE VAI SER EDITADO
         let {id} = req.params;
         // console.log(id);
 
         //CHAMADA DO AXIOS PARA A API:
-        const urlListagemCategoria = `http://localhost:3000/listarCategoria/${id}`;
+        const urlListagemCategoria = `http://localhost:3000/listarArtes/${id}`;
         
         axios.get(urlListagemCategoria)
         .then(
             (response)=>{
 
                 let categoria = response.data;
-                res.render('categoria/editarCategoria', {categoria});
+                res.render('artesMarcial/editarArtes', {categoria});
 
             }
         )
     });
+
+    app.get('/formEdicaoArtes/:id', (req, res)=>{
+
+        let {id} = req.params
+        console.log(id);
+
+        
+
+        res.render('artesMarcial/formEdicao');
+        
+    })
 
     //ROTA DE EDIÇÃO
     app.post('/alterarCategoria', (req, res)=>{
