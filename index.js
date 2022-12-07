@@ -71,15 +71,15 @@ app.get('/listagemArtesMarcial', (req, res)=>{
         
     })
 
-    //ROTA DE EDIÇÃO
-    app.post('/alterarCategoria', (req, res)=>{
+    //ROTA PARA DELETAR ESTILO MARCIAL
+    app.post('/artesMarcial/alterarArtesMarcial', (req, res)=>{
 
-        const urlAlterarCategoria = 'http://localhost:3000/alterarCategoria';
+        const urlExcluirArtes = 'http://localhost:3000//excluirArtesMarcial/{id}';
         console.log(req.body);
 
-        axios.put(urlAlterarCategoria, req.body)
+        axios.put(urlExcluirArtes, req.body)
         .then(
-            res.send('ALTERADO!')
+            res.send('Deletado')
         )
 
     });
