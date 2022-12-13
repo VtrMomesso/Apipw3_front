@@ -15,17 +15,17 @@
         </div>
 
         <%
-             artesMarcial.forEach(artes=>{
+             artesMarcial.forEach(artesMarcial=>{
         %>
 
             <div class="card mt-2">
 
                 <div class="card-body">
-                    <%= artes.estiloMarcial %>
+                    <%= artesMarcial.estiloMarcial %>
                 </div>
 
-                <a href="/formEdicaoArtes/<%= artes.id %>" class="btn btn-success mt-1">EDITAR</a>
-                <a href="/excluirArtesMarcial/<%= artes.id %>"  class="btn btn-danger mt-1">EXCLUIR</a>
+                <a href="/alterarArtesMarcial/<%= artesMarcial.id %>" class="btn btn-success mt-1">EDITAR</a>
+                <a href="/deletarMarcial/<%= artesMarcial.id %>"  class="btn btn-danger mt-1">EXCLUIR</a>
 
             </div>
 

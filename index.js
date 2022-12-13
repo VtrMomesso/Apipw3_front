@@ -18,7 +18,7 @@ app.get('/inserirArtesMarcial', (req, res)=>{
     res.render('artesMarcial/index');
 });
 
-//ROTA DE LISTAGEM DE CATEGORIAS
+//ROTA DE LISTAGEM DE ARTES MARCIAL
 app.get('/listagemArtesMarcial', (req, res)=>{
     
     const urlListagemArtesMarcial = 'http://localhost:3000/listarArtes';
@@ -39,6 +39,7 @@ app.get('/listagemArtesMarcial', (req, res)=>{
         }); 
     });
 
+
     //ROTA DE LISTAGEM DE EDIÇÃO
     app.get('/alterarArtesMarcial/:id', (req, res)=>{
         
@@ -47,39 +48,42 @@ app.get('/listagemArtesMarcial', (req, res)=>{
         // console.log(id);
 
         //CHAMADA DO AXIOS PARA A API:
-        const urlListagemCategoria = `http://localhost:3000/listarArtes/${id}`;
+        const urlListagemCategoria = `http://localhost:3000/listaArtesMarcial/${id}`;
         
         axios.get(urlListagemCategoria)
         .then(
             (response)=>{
 
-                let categoria = response.data;
-                res.render('artesMarcial/editarArtes', {categoria});
+                let artesMarcial = response.data;
+                res.render('artesMarcial/formEdicao', {artesMarcial});
 
             }
         )
     });
 
-    app.get('/formEdicaoArtes/:id', (req, res)=>{
+    app.get('/formEdicaoArtes', (req, res)=>{
 
-        let {id} = req.params
-        console.log(id);
 
+         const urlListagemAnotacao = `http://localhost:3000/alterarArtesMarcial`;
         
-
-        res.render('artesMarcial/formEdicao');
+        axios.put(urlListagemAnotacao, req.body)
+        .then(
+            res.redirect('http://localhost:3001/listagemArtesMarcial')
+        )
         
     })
 
     //ROTA PARA DELETAR ESTILO MARCIAL
-    app.post('/artesMarcial/alterarArtesMarcial', (req, res)=>{
+    app.post('/deletarMarcial/:id', (req, res)=>{
 
-        const urlExcluirArtes = 'http://localhost:3000//excluirArtesMarcial/{id}';
+        const urlExcluirArtes = `http://localhost:3000/excluirArtesMarcial/${id}`;
         console.log(req.body);
 
-        axios.put(urlExcluirArtes, req.body)
+        axios.put(urlExcluirArtes)
         .then(
-            res.send('Deletado')
+            res.send('Deletado'),
+
+            res.redirect('http://localhost:3001/listagemArtesMarcial')
         )
 
     });

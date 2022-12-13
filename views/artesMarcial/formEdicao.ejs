@@ -15,22 +15,28 @@
         </div>
 
         <div class="card-body">
-            <form action="http://localhost:3000/inserirArtesMarcial" method="post">
+            <form action="http://localhost:3001/formEdicaoArtes" method="post">
                 
                 <label for="">ESTILO MARCIAL</label>
+
+                <input name="id" type="hidden" value="<%= artesMarcial.id %>">
+
                 <input type="text" class="form-control" 
                         name="estiloMarcial" id="estiloMarcial"
-                        placeholder="Digite um estilo Marcial">
+                        placeholder="Digite um estilo Marcial"
+                        value="<%= artesMarcial.estiloMarcial %>">
 
                 <label for="">DESCRIÇÃO DO ESTILO MARCIAL</label>
                 <input type="text" class="form-control" 
                             name="descricao" id="descricao"
-                            placeholder="Digite a descrição do estilo marcial">
+                            placeholder="Digite a descrição do estilo marcial"
+                            value="<%= artesMarcial.descricao %>">
 
                 <label for="">FOTO DO ESTILO MARCIAL</label>
                  <input type="text" class="form-control" 
                      name="foto" id="foto"
-                        placeholder="Digite uma foto do estilo marcial">
+                        placeholder="Digite uma foto do estilo marcial"
+                        value="<%= artesMarcial.foto %>">
                 
                 <button class="btn btn-success mt-2">ALTERAR</button>
             </form>
