@@ -61,7 +61,7 @@ app.get('/listagemArtesMarcial', (req, res)=>{
         )
     });
 
-    app.get('/formEdicaoArtes', (req, res)=>{
+    app.post('/formEdicaoArtes', (req, res)=>{
 
 
          const urlListagemAnotacao = `http://localhost:3000/alterarArtesMarcial`;
@@ -74,12 +74,15 @@ app.get('/listagemArtesMarcial', (req, res)=>{
     })
 
     //ROTA PARA DELETAR ESTILO MARCIAL
-    app.post('/deletarMarcial/:id', (req, res)=>{
+    app.get('/deletarMarcial/:id', (req, res)=>{
+
+        let {id} = req.params
+        console.log(id);
 
         const urlExcluirArtes = `http://localhost:3000/excluirArtesMarcial/${id}`;
         console.log(req.body);
 
-        axios.put(urlExcluirArtes)
+        axios.delete(urlExcluirArtes)
         .then(
             res.send('Deletado'),
 
